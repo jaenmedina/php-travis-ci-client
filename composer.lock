@@ -4,8 +4,57 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "36df343352372e62eb68f7f48e519ddb",
-    "packages": [],
+    "hash": "39ac3c1c9d01ca781391346758b0b17f",
+    "packages": [
+        {
+            "name": "jaenmedina/php-rest-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jaenmedina/php-rest-client.git",
+                "reference": "e81881da0b4bff43cc3c7da184458ecef58b95f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jaenmedina/php-rest-client/zipball/e81881da0b4bff43cc3c7da184458ecef58b95f9",
+                "reference": "e81881da0b4bff43cc3c7da184458ecef58b95f9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jaen Medina",
+                    "email": "jaenmedina@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP REST Client.",
+            "keywords": [
+                "client",
+                "curl",
+                "http",
+                "php",
+                "rest"
+            ],
+            "time": "2015-04-23 21:15:03"
+        }
+    ],
     "packages-dev": [
         {
             "name": "phpunit/php-code-coverage",
@@ -428,7 +477,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "jaenmedina/php-rest-client": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
