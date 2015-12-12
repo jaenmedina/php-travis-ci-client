@@ -2,7 +2,7 @@
 
 namespace jaenmedina\PhpTravicCiClient\Test;
 use PHPUnit_Framework_TestCase;
-use jaenmedina\PhpTravicCiClient\Entity\Repository;
+use jaenmedina\PhpTravisCiClient\Entity\Repository;
 
 class RepositoryTest extends PHPUnit_Framework_TestCase {
 

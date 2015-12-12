@@ -1,6 +1,6 @@
 <?php
 
-namespace jaenmedina\PhpTravicCiClient\Entity;
+namespace jaenmedina\PhpTravisCiClient\Entity;
 use jaenmedina\PhpRestClient\Methods\Get;
 
 class Repository {

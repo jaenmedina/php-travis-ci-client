@@ -9,7 +9,7 @@ spl_autoload_register(
 
         if ($classes === NULL) {
             $classes = array(
-                'jaenmedina\PhpTravicCiClient\Entity\Repository' => '/src/Repository.php'
+                'jaenmedina\PhpTravisCiClient\Entity\Repository' => '/src/Repository.php'
             );
             $path = dirname(__FILE__);
         }
