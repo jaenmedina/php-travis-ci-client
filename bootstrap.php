@@ -9,7 +9,10 @@ spl_autoload_register(
 
         if ($classes === NULL) {
             $classes = array(
-                'jaenmedina\PhpTravisCiClient\Entity\Repository' => '/src/Repository.php'
+                'jaenmedina\PhpTravisCiClient\Entity\Repository' => '/src/entities/Repository.php',
+                'jaenmedina\PhpTravisCiClient\Entity\TravisEntity' => '/src/entities/TravisEntity.php',
+                'jaenmedina\PhpTravisCiClient\Handler\RepositoryHandler' => '/src/handlers/RepositoryHandler.php',
+                'jaenmedina\PhpTravisCiClient\Handler\TravisHandler' => '/src/handlers/TravisHandler.php'
             );
             $path = dirname(__FILE__);
         }

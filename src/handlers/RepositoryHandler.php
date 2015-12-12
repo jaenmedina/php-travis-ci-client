@@ -1,44 +1,34 @@
 <?php
 
-namespace jaenmedina\PhpTravisCiClient\Entity;
+namespace jaenmedina\PhpTravisCiClient\Handler;
 use jaenmedina\PhpRestClient\Methods\Get;
+use jaenmedina\PhpTravisCiClient\Entity\Repository;
 
-class Repository {
-
-    /**
-     * @var string
-     */
-    protected $travisAccessToken;
-
-    /**
-     * @param $travisAccessToken
-     */
-    public function __construct($travisAccessToken){
-        $this->travisAccessToken = $travisAccessToken;
-    }
-
+class RepositoryHandler extends TravisHandler
+{
     /**
      * @param int $id
-     * @return stdClass
+     * @return Repository
      */
     public function getById($id){
         $url = 'api.travis-ci.org/repos/' . $id . '';
         $getMethod = new Get($url);
         $getMethod->setCurlOption('CURLOPT_HTTPHEADER', '[\'Authorization: ' . $this->travisAccessToken . '\']');
         $result = $getMethod->execute();
-        return json_decode($result['body']);
+        $repository = new Repository($result['body']);
+        return $repository;
     }
 
     /**
      * @param string $slug
-     * @return stdClass
+     * @return Repository
      */
     public function getBySlug($slug){
         $url = 'api.travis-ci.org/repos/' . $slug . '';
         $getMethod = new Get($url);
         $getMethod->setCurlOption('CURLOPT_HTTPHEADER', '[\'Authorization: ' . $this->travisAccessToken . '\']');
         $result = $getMethod->execute();
-        return json_decode($result['body']);
+        $repository = new Repository($result['body']);
+        return $repository;
     }
-
 }
