@@ -13,6 +13,10 @@ class TravisEntity
             foreach ($propertiesArray as $name => $value) {
                 $this->$name = $value;
             }
+        } else if($properties instanceof \stdClass) {
+            foreach(get_object_vars($properties) as $name => $value) {
+                $this->$name = $value;
+            }
         }
     }
 

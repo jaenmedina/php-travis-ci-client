@@ -54,14 +54,14 @@ class Repository extends TravisEntity
     public $last_build_duration;
 
     /**
-     * @var datetime
+     * @var string
      * @desc Build started at of the last build.
      * @see https://docs.travis-ci.com/api#repositories
      */
     public $last_build_started_at;
 
     /**
-     * @var datetime
+     * @var string
      * @desc Build finished at of the last build.
      * @see https://docs.travis-ci.com/api#repositories
      */
