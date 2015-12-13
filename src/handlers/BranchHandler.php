@@ -2,7 +2,6 @@
 
 namespace jaenmedina\PhpTravisCiClient\Handler;
 
-use jaenmedina\PhpRestClient\Methods\Get;
 use jaenmedina\PhpTravisCiClient\Entity\Branch;
 
 class BranchHandler extends TravisHandler
@@ -13,9 +12,7 @@ class BranchHandler extends TravisHandler
      */
     public function getById($id){
         $url = 'api.travis-ci.org/repos/' . $id . '/branches';
-        $getMethod = new Get($url);
-        $getMethod->setCurlOption('CURLOPT_HTTPHEADER', '[\'Authorization: ' . $this->travisAccessToken . '\']');
-        $result = $getMethod->execute();
+        $result = $this->doGet($url);
         $branches = array();
         $branchArray = json_decode($result['body']);
         foreach ($branchArray->branches as $branch) {
@@ -30,9 +27,7 @@ class BranchHandler extends TravisHandler
      */
     public function getBySlug($slug){
         $url = 'api.travis-ci.org/repos/' . $slug . '/branches';
-        $getMethod = new Get($url);
-        $getMethod->setCurlOption('CURLOPT_HTTPHEADER', '[\'Authorization: ' . $this->travisAccessToken . '\']');
-        $result = $getMethod->execute();
+        $result = $this->doGet($url);
         $branches = array();
         $branchArray = json_decode($result['body']);
         foreach ($branchArray->branches as $branch) {

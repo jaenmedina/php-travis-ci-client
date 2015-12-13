@@ -2,7 +2,6 @@
 
 namespace jaenmedina\PhpTravisCiClient\Handler;
 
-use jaenmedina\PhpRestClient\Methods\Get;
 use jaenmedina\PhpTravisCiClient\Entity\Build;
 
 class BuildHandler extends TravisHandler
@@ -13,9 +12,7 @@ class BuildHandler extends TravisHandler
      */
     public function getByRepositoryName($repositoryName){
         $url = 'api.travis-ci.org/repos/' . $repositoryName . '/builds';
-        $getMethod = new Get($url);
-        $getMethod->setCurlOption('CURLOPT_HTTPHEADER', '[\'Authorization: ' . $this->travisAccessToken . '\']');
-        $result = $getMethod->execute();
+        $result = $this->doGet($url);
         $builds = array();
         $buildsArray = json_decode($result['body']);
         foreach ($buildsArray as $build) {

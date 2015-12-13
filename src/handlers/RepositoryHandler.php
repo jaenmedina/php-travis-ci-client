@@ -2,7 +2,6 @@
 
 namespace jaenmedina\PhpTravisCiClient\Handler;
 
-use jaenmedina\PhpRestClient\Methods\Get;
 use jaenmedina\PhpTravisCiClient\Entity\Repository;
 
 class RepositoryHandler extends TravisHandler
@@ -13,9 +12,7 @@ class RepositoryHandler extends TravisHandler
      */
     public function getById($id){
         $url = 'api.travis-ci.org/repos/' . $id . '';
-        $getMethod = new Get($url);
-        $getMethod->setCurlOption('CURLOPT_HTTPHEADER', '[\'Authorization: ' . $this->travisAccessToken . '\']');
-        $result = $getMethod->execute();
+        $result = $this->doGet($url);
         $repository = new Repository($result['body']);
         return $repository;
     }
@@ -26,9 +23,7 @@ class RepositoryHandler extends TravisHandler
      */
     public function getBySlug($slug){
         $url = 'api.travis-ci.org/repos/' . $slug . '';
-        $getMethod = new Get($url);
-        $getMethod->setCurlOption('CURLOPT_HTTPHEADER', '[\'Authorization: ' . $this->travisAccessToken . '\']');
-        $result = $getMethod->execute();
+        $result = $this->doGet($url);
         $repository = new Repository($result['body']);
         return $repository;
     }

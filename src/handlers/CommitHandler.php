@@ -2,10 +2,9 @@
 
 namespace jaenmedina\PhpTravisCiClient\Handler;
 
-use jaenmedina\PhpRestClient\Methods\Get;
 use jaenmedina\PhpTravisCiClient\Entity\Commit;
 
-class CommitHandler
+class CommitHandler extends TravisHandler
 {
     /**
      * @param int $id
@@ -13,9 +12,7 @@ class CommitHandler
      */
     public function getByBranchId($id){
         $url = 'api.travis-ci.org/repos/' . $id . '/branches';
-        $getMethod = new Get($url);
-        $getMethod->setCurlOption('CURLOPT_HTTPHEADER', '[\'Authorization: ' . $this->travisAccessToken . '\']');
-        $result = $getMethod->execute();
+        $result = $this->doGet($url);
         $commits = array();
         $commitArray = json_decode($result['body']);
         foreach ($commitArray->commits as $commit) {
@@ -30,9 +27,7 @@ class CommitHandler
      */
     public function getByBranchSlug($slug){
         $url = 'api.travis-ci.org/repos/' . $slug . '/branches';
-        $getMethod = new Get($url);
-        $getMethod->setCurlOption('CURLOPT_HTTPHEADER', '[\'Authorization: ' . $this->travisAccessToken . '\']');
-        $result = $getMethod->execute();
+        $result = $this->doGet($url);
         $commits = array();
         $commitArray = json_decode($result['body']);
         foreach ($commitArray->commits as $commit) {
