@@ -24,6 +24,9 @@
   },
 
   "autoload": {
-    "files": ["bootstrap.php"]
+    "psr-4": {
+      "jaenmedina\\PhpTravisCiClient\\Entity\\": "src/entities/",
+      "jaenmedina\\PhpTravisCiClient\\Handler\\": "src/handlers/"
+    }
   }
 }

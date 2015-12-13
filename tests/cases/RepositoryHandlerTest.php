@@ -1,8 +1,6 @@
 <?php
 
-namespace jaenmedina\PhpTravicCiClient\Test;
 use jaenmedina\PhpTravisCiClient\Handler\RepositoryHandler;
-use PHPUnit_Framework_TestCase;
 
 class RepositoryHandlerTest extends PHPUnit_Framework_TestCase {
 

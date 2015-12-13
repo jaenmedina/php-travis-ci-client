@@ -2,7 +2,6 @@
 
 namespace jaenmedina\PhpTravisCiClient\Handler;
 
-namespace jaenmedina\PhpTravisCiClient\Handler;
 use jaenmedina\PhpRestClient\Methods\Get;
 use jaenmedina\PhpTravisCiClient\Entity\Build;
 
